@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { SafeAreaView } from 'react-native';
-import ToDoList from './ToDoList';
+import TaskList from './TaskList';
 import ToDoForm from './ToDoForm';
 
 function App() {
@@ -10,14 +10,15 @@ function App() {
     'Walk dog'
   ]);
 
-  const addTask = (newTask) => {
-    setTasks([...tasks, newTask]);
+  // Updated addTask function
+  const addTask = (taskText) => {
+    setTasks([...tasks, taskText]); // Append the new task to the existing tasks
   };
 
   return (
     <SafeAreaView>
-      <ToDoList tasks={tasks} />  {/* Pass tasks to ToDoList */}
-      <ToDoForm addTask={addTask} />  {/* Pass addTask function to ToDoForm */}
+      <TaskList taskItems={tasks} /> {/* Pass tasks to TaskList */}
+      <ToDoForm addTask={addTask} /> {/* Pass addTask to ToDoForm */}
     </SafeAreaView>
   );
 }
